@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="amsi.dei.estg.ipleiria.layout">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".vista.MenuPrincipalActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
+        <activity
+            android:name=".vista.fragmentos.ContactosFragment"
+            android:parentActivityName=".vista.MenuPrincipalActivity" />
+        <activity
+            android:name=".vista.fragmentos.FavoritoFragment"
+            android:parentActivityName=".vista.MenuPrincipalActivity" />
+        <activity
+            android:name=".vista.fragmentos.HistoricoFragment"
+            android:parentActivityName=".vista.MenuPrincipalActivity" />
+        <activity
+            android:name=".vista.fragmentos.LogoutFragment"
+            android:parentActivityName=".vista.MenuPrincipalActivity" />
+        <activity
+            android:name=".vista.fragmentos.PedidoFragment"
+            android:parentActivityName=".vista.MenuPrincipalActivity" />
+        <activity
+            android:name=".vista.fragmentos.PerfilFragment"
+            android:parentActivityName=".vista.MenuPrincipalActivity" />
+        <activity
+            android:name=".vista.fragmentos.ProdutosFragment"
+            android:parentActivityName=".vista.MenuPrincipalActivity" />
+        <activity
+            android:name=".vista.fragmentos.PromocoesFragment"
+            android:parentActivityName=".vista.MenuPrincipalActivity" />
+        <activity
+            android:name=".vista.fragmentos.ReservasFragment"
+            android:parentActivityName=".vista.MenuPrincipalActivity" />
+
+        <activity
+            android:name=".vista.DetalhesProdutos"
+            android:parentActivityName=".vista.fragmentos.ProdutosFragment" />
+
+        <activity
+            android:name=".vista.RegistoActivity"
+            android:parentActivityName=".vista.LoginActivity" />
+        <activity android:name=".vista.LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            </activity>
+    </application>
+
+</manifest>

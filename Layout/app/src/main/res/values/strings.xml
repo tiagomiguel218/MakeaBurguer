@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">Make a Burguer</string>
+    <string name="Nome">Nome</string>
+    <string name="Nif">NIF</string>
+    <string name="tvBemVindo">Bem Vindo</string>
+    <string name="tvRegisto">Regista-se já!!</string>
+    <string name="Registo">Registar</string>
+    <string name="Login">Login</string>
+    <string name="Telemovel">Telemóvel</string>
+    <string name="Email">Email</string>
+    <string name="regist">Registo</string>
+    <string name="MenuPrincipal">Menu Principal</string>
+    <string name="Menu">Menus</string>
+    <string name="Produtos">Produtos</string>
+    <string name="Promocoes">Promoções</string>
+    <string name="Pass">Password</string>
+    <string name="etMailText">Email</string>
+    <string name="etPasswordHint">Password</string>
+    <string name="TextErrorMail">O mail que indicou não é válido.</string>
+    <string name="TextErrorPassword">A password indicada não é válida. Deve ter pelo menos 8 carateres e não deve ser superior a 20.</string>
+    <string name="TextErrorNif">O nif indicado não é válida. Deve ter pelo menos 9 carateres.</string>
+    <string name="TextErrorNome">O nome indicada não é válida.</string>
+    <string name="TextErrorTelemovel">O telemovel indicada não é válida. Deve ter pelo menos 9 carateres.</string>
+    <string name="hamburguer">Hamburguer</string>
+    <string name="favoritos">Favoritos</string>
+    <string name="pedidos_reservas">Pedidos e Reservas</string>
+    <string name="pedidos">Meu Pedido</string>
+    <string name="historico_pedidos">Histórico de Pedidos</string>
+    <string name="reservas">Reservas</string>
+    <string name="pessoal">Pessoal</string>
+    <string name="perfil">Perfil</string>
+    <string name="contactos">Contactos</string>
+    <string name="logout">Logout</string>
+    <string name="navigation_drawer_open">navigation_drawer_open</string>
+    <string name="navigation_drawer_close">navigation_drawer_close</string>
+    <string name="bebidas">Bebidas</string>
+    <string name="complementos">Complementos</string>
+    <string name="sobremesas">Sobremesas</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

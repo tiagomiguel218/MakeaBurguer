@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_produtos"
+            android:icon="@drawable/ic_hamburguer"
+            android:title="@string/Produtos"/>
+
+        <item
+            android:id="@+id/nav_promocao"
+            android:icon="@drawable/ic_promocao"
+            android:title="@string/Promocoes" />
+
+        <item
+            android:id="@+id/nav_favorito"
+            android:icon="@drawable/ic_favorito"
+            android:title="@string/favoritos" />
+
+        <item android:title="@string/pedidos_reservas">
+            <menu>
+                <item
+                    android:id="@+id/nav_pedido"
+                    android:icon="@drawable/ic_favorito"
+                    android:title="@string/pedidos" />
+
+                <item
+                    android:id="@+id/nav_historicoPedidos"
+                    android:icon="@drawable/ic_favorito"
+                    android:title="@string/historico_pedidos" />
+
+                <item
+                    android:id="@+id/nav_reservas"
+                    android:icon="@drawable/ic_favorito"
+                    android:title="@string/reservas" />
+
+            </menu>
+        </item>
+
+        <item android:title="@string/pessoal">
+            <menu>
+                <item
+                    android:id="@+id/nav_perfil"
+                    android:icon="@drawable/ic_perfil"
+                    android:title="@string/perfil" />
+
+                <item
+                    android:id="@+id/nav_contactos"
+                    android:icon="@drawable/ic_contactos"
+                    android:title="@string/contactos" />
+
+                <item
+                    android:id="@+id/nav_logout"
+                    android:icon="@drawable/ic_favorito"
+                    android:title="@string/logout" />
+            </menu>
+
+        </item>
+    </group>
+</menu>
