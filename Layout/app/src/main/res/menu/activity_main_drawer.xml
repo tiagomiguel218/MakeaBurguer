@@ -1,15 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_produtos"
-            android:icon="@drawable/ic_hamburguer"
-            android:title="@string/Produtos"/>
 
+        <item android:title="@string/Produtos">
+            <menu>
+                <item
+                    android:id="@+id/nav_hamburguer"
+                    android:icon="@drawable/ic_hamburguer"
+                    android:title="@string/hamburguer"
+                    android:checkable="true"/>
+                <item
+                    android:id="@+id/nav_bebidas"
+                    android:icon="@drawable/ic_bebida"
+                    android:title="@string/bebidas"/>
+                <item
+                    android:id="@+id/nav_complementos"
+                    android:icon="@drawable/ic_batata_frita"
+                    android:title="@string/complementos"/>
+                <item
+                    android:id="@+id/nav_sobremesas"
+                    android:icon="@drawable/ic_sobremesa"
+                    android:title="@string/sobremesas"/>
+            </menu>
+        </item>
+
+    <menu>
+        <item
+            android:id="@+id/nav_burguerPersonalizado"
+            android:icon="@drawable/ic_hamburguer"
+            android:title="@string/burger"
+            />
         <item
             android:id="@+id/nav_promocao"
             android:icon="@drawable/ic_promocao"
@@ -20,21 +43,22 @@
             android:icon="@drawable/ic_favorito"
             android:title="@string/favoritos" />
 
+</menu>
         <item android:title="@string/pedidos_reservas">
             <menu>
                 <item
                     android:id="@+id/nav_pedido"
-                    android:icon="@drawable/ic_favorito"
+                    android:icon="@drawable/ic_pedido"
                     android:title="@string/pedidos" />
 
                 <item
                     android:id="@+id/nav_historicoPedidos"
-                    android:icon="@drawable/ic_favorito"
+                    android:icon="@drawable/ic_historico"
                     android:title="@string/historico_pedidos" />
 
                 <item
                     android:id="@+id/nav_reservas"
-                    android:icon="@drawable/ic_favorito"
+                    android:icon="@drawable/ic_not_favorito"
                     android:title="@string/reservas" />
 
             </menu>
@@ -54,7 +78,7 @@
 
                 <item
                     android:id="@+id/nav_logout"
-                    android:icon="@drawable/ic_favorito"
+                    android:icon="@drawable/ic_logout"
                     android:title="@string/logout" />
             </menu>
 

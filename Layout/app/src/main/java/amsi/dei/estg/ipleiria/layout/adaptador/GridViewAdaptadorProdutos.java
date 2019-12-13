@@ -9,20 +9,23 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import amsi.dei.estg.ipleiria.layout.R;
 import amsi.dei.estg.ipleiria.layout.modelo.Produtos;
 
-public class GridViewAdaptador extends BaseAdapter {
+public class GridViewAdaptadorProdutos extends BaseAdapter {
 
-    private ArrayList<Produtos> listaProdutos;
+    private List<Produtos> listaProdutos;
+
     private Context contexto;
     private LayoutInflater inflater;
 
 
-    public GridViewAdaptador(Context context, ArrayList<Produtos> lista){
+    public GridViewAdaptadorProdutos(Context context, ArrayList<Produtos> produtos ){
         this.contexto=context;
-        this.listaProdutos=lista;
+        this.listaProdutos=produtos;
+
 
     }
 
@@ -43,11 +46,6 @@ public class GridViewAdaptador extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-       /* codigo menos otimizado o de baixo e mais otimizado
-        convertView=((LayoutInflater) this.contexto.getSystemService(this.contexto.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.item_lista_livros, null);
-
-        ViewHolderLista holder =new ViewHolderLista(convertView);
-        holder.update(listaLivros.get(position));*/
 
         if(inflater ==null)
             inflater=(LayoutInflater) this.contexto.getSystemService(this.contexto.LAYOUT_INFLATER_SERVICE);

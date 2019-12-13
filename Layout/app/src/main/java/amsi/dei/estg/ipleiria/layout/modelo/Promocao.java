@@ -1,32 +1,21 @@
 package amsi.dei.estg.ipleiria.layout.modelo;
 
+public class Promocao {
+    private long id;
+    private String nome;
+    private int preco;
+    private int imagem;
 
-    public class Produtos {
-        private int id;
-        private String nome;
-        private int preco;
-        private int imagem;
-
-
-    public Produtos(int id, String nome, int preco, int imagem) {
+    public Promocao(long id, String nome, int preco, int imagem) {
         this.id=id;
         this.setNome(nome);
         this.setPreco(preco);
         this.setImagem(imagem);
     }
 
-    public Produtos(){
-
-    }
-
-    public int getId() {
+    public long getId() {
         return id;
     }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public String getNome() {
         return nome;
     }
@@ -54,7 +43,7 @@ package amsi.dei.estg.ipleiria.layout.modelo;
 
     @Override
     public String toString() {
-        return  this.imagem  + this.nome + this.preco+"";
+        return  this.imagem  + this.nome + this.preco+"" ;
     }
-
 }
+

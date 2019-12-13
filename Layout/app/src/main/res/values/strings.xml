@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Make a Burguer</string>
+    <string name="app_name">Make a Burger</string>
     <string name="Nome">Nome</string>
     <string name="Nif">NIF</string>
     <string name="tvBemVindo">Bem Vindo</string>
@@ -37,7 +37,71 @@
     <string name="complementos">Complementos</string>
     <string name="sobremesas">Sobremesas</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_produtos">ProdutosActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="bttAdicionar">Adicionar ao Pedido</string>
+    <string name="bttAlterar">Hamburguer Personalizado</string>
+    <string name="tviewingredientes">Ingredientes</string>
+    <string name="NºLugares">Número de Lugares</string>
+    <string name="Data">Data</string>
+    <string name="Hora">Hora</string>
+    <string name="LembrarCalendario">Lembrar no Calendário</string>
+    <string name="Reservar">Reservar</string>
+    <string name="total">Total</string>
+    <string name="retirarFavoritos">Retirar dos Favoritos</string>
+    <string name="morada">Av. 5 Outubro</string>
+    <string name="codpostal">2560-270</string>
+    <string name="telemovel">912 310 4000</string>
+    <string name="telefone">261 310 4000</string>
+    <string name="mailmakeaburger">makeburger@gmail.com</string>
+    <string name="enviarpedido">Enviar Pedido</string>
+    <string name="Telefone">Telefone</string>
+    <string name="Morada">Morada</string>
+    <string name="Adicionado">Foi adicionado com sucesso</string>
+    <string name="burger">Hamburguer Personalizado</string>
+    <string name="search">Pesquisa</string>
+    <string name="Titulo">Nome do Hamburguer</string>
+    <string name="bttAdicionarNovo">Adicionar Hamburguer Personalizado</string>
+    <string name="adicionado">Foi adicionado aos favoritos!</string>
+
+
+    <string-array name="items_lugares">
+        <item>Quantos lugares?</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+    </string-array>
+
+    <string-array name="items_horas">
+        <item>Horas</item>
+        <item>9h:00</item>
+        <item>10h:00</item>
+        <item>11h:00</item>
+        <item>12h:00</item>
+        <item>13h:00</item>
+        <item>14h:00</item>
+        <item>15h:00</item>
+        <item>16h:00</item>
+        <item>17h:00</item>
+        <item>18h:00</item>
+        <item>19h:00</item>
+        <item>20h:00</item>
+        <item>21h:00</item>
+        <item>22h:00</item>
+        <item>23h:00</item>
+
+    </string-array>
 </resources>

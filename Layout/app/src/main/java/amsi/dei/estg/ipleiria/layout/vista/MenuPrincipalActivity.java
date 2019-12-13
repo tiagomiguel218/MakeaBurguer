@@ -10,10 +10,13 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.SearchView;
+import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
-
 
 
 import amsi.dei.estg.ipleiria.layout.R;
@@ -22,12 +25,13 @@ import amsi.dei.estg.ipleiria.layout.vista.fragmentos.ComplementosFragment;
 import amsi.dei.estg.ipleiria.layout.vista.fragmentos.ContactosFragment;
 import amsi.dei.estg.ipleiria.layout.vista.fragmentos.FavoritoFragment;
 import amsi.dei.estg.ipleiria.layout.vista.fragmentos.HamburguerFragment;
+import amsi.dei.estg.ipleiria.layout.vista.fragmentos.HamburguerPersonFragment;
 import amsi.dei.estg.ipleiria.layout.vista.fragmentos.HistoricoFragment;
 import amsi.dei.estg.ipleiria.layout.vista.fragmentos.LogoutFragment;
 import amsi.dei.estg.ipleiria.layout.vista.fragmentos.PedidoFragment;
 import amsi.dei.estg.ipleiria.layout.vista.fragmentos.PerfilFragment;
-import amsi.dei.estg.ipleiria.layout.vista.fragmentos.ProdutosFragment;
 import amsi.dei.estg.ipleiria.layout.vista.fragmentos.PromocoesFragment;
+import amsi.dei.estg.ipleiria.layout.vista.fragmentos.ReservasFragment;
 import amsi.dei.estg.ipleiria.layout.vista.fragmentos.SobremesasFragment;
 
 
@@ -45,9 +49,13 @@ public class MenuPrincipalActivity extends AppCompatActivity implements Navigati
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal_main);
 
+
+
         //incorporar a toolbar na vista
         Toolbar toolbar=findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
 
         navigationView=findViewById(R.id.nav_view);
         drawer=findViewById(R.id.drawer_layout);
@@ -59,32 +67,74 @@ public class MenuPrincipalActivity extends AppCompatActivity implements Navigati
 
         fragmentManager=getSupportFragmentManager();
 
+
         loadFragmentoInicial();
 
     }
 
-    private void loadFragmentoInicial() {
-        navigationView.setCheckedItem(R.id.nav_produtos);
-        Fragment fragmento = new ProdutosFragment();
+
+
+   private void loadFragmentoInicial() {
+        navigationView.setCheckedItem(R.id.nav_hamburguer);
+        Fragment fragmento = new HamburguerFragment();
         fragmentManager.beginTransaction().replace(R.id.contentFragment, fragmento).commit();
-        setTitle("Produtos");
+        setTitle("Hamburguer");
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_toolbar, menu);
+
+        return super.onCreateOptionsMenu(menu);
+
     }
 
 
 
-
     @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.notificacoes:
+                Toast.makeText(this, item.getTitle(), Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.pesquisa:
+                Toast.makeText(this, item.getTitle(), Toast.LENGTH_SHORT).show();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
+
+        @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         Fragment fragmento=null;
         int id=menuItem.getItemId();
         switch(id){
-
-            case R.id.nav_produtos:
-                fragmento=new ProdutosFragment();
+            case R.id.nav_bebidas:
+                fragmento=new BebidasFragment();
+                setTitle(menuItem.getTitle());
+                break;
+            case R.id.nav_hamburguer:
+                fragmento=new HamburguerFragment();
+                setTitle(menuItem.getTitle());
+                break;
+            case R.id.nav_complementos:
+                fragmento=new ComplementosFragment();
+                setTitle(menuItem.getTitle());
+                break;
+            case R.id.nav_sobremesas:
+                fragmento=new SobremesasFragment();
                 setTitle(menuItem.getTitle());
                 break;
             case R.id.nav_promocao:
                 fragmento=new PromocoesFragment();
+                setTitle(menuItem.getTitle());
+                break;
+            case R.id.nav_burguerPersonalizado:
+                fragmento=new HamburguerPersonFragment();
                 setTitle(menuItem.getTitle());
                 break;
             case R.id.nav_favorito:
@@ -97,6 +147,10 @@ public class MenuPrincipalActivity extends AppCompatActivity implements Navigati
                 break;
             case R.id.nav_historicoPedidos:
                 fragmento=new HistoricoFragment();
+                setTitle(menuItem.getTitle());
+                break;
+            case R.id.nav_reservas:
+                fragmento=new ReservasFragment();
                 setTitle(menuItem.getTitle());
                 break;
             case R.id.nav_perfil:
@@ -120,6 +174,4 @@ public class MenuPrincipalActivity extends AppCompatActivity implements Navigati
 
         return true;
     }
-
-
-}
+     }
