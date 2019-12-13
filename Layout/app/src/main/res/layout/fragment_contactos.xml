@@ -6,82 +6,144 @@
     android:layout_height="match_parent"
     tools:context=".vista.fragmentos.ContactosFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
 
         <TextView
             android:id="@+id/tvContactos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+
+            style="@style/AppTheme.TextViewTitulos"
             android:layout_marginTop="32dp"
-            android:text="@string/contactos"
-            android:textSize="36sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:text="@string/contactos" />
 
         <TextView
             android:id="@+id/tvNomeRestaurante"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="24dp"
             android:text="@string/app_name"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvContactos" />
+            android:textAlignment="center"
+            android:textSize="24sp"
+            />
 
-        <TextView
-            android:id="@+id/tvMorada"
-            android:layout_width="67dp"
-            android:layout_height="12dp"
-            android:layout_marginTop="24dp"
-            android:text="TextView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvNomeRestaurante" />
-
-        <TextView
-            android:id="@+id/tvCodPostal"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:text="TextView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvMorada" />
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/tvTelemovel"
-            android:layout_width="57dp"
-            android:layout_height="17dp"
-            android:layout_marginStart="50dp"
-            android:layout_marginTop="68dp"
-            android:text="TextView"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvCodPostal" />
+            <ImageView
+                android:id="@+id/textView4"
+                app:srcCompat="@drawable/ic_home"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"/>
 
-        <TextView
-            android:id="@+id/tvTelefone"
-            android:layout_width="68dp"
-            android:layout_height="11dp"
-            android:layout_marginTop="68dp"
-            android:layout_marginEnd="50dp"
-            android:text="TextView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/tvTelemovel"
-            app:layout_constraintTop_toBottomOf="@+id/tvCodPostal" />
+            <TextView
+                android:id="@+id/tvMorada"
+                style="@style/AppTheme.TextViewPadrao"
+                android:layout_marginEnd="10dp"
+                android:text="@string/morada" />
 
-        <TextView
-            android:id="@+id/tvEmail"
+            <TextView
+                android:id="@+id/tvCodPostal"
+                style="@style/AppTheme.TextViewPadrao"
+                android:text="@string/codpostal"/>
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
-            android:layout_marginTop="16dp"
-            android:text="TextView"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvTelemovel" />
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageView
+                android:id="@+id/textViewTelemovel"
+                app:srcCompat="@drawable/ic_contactos"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content" />
+            <TextView
+                android:id="@+id/tvTelefone"
+                style="@style/AppTheme.TextViewPadrao"
+                android:layout_marginEnd="20dp"
+                android:text="@string/telefone" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/textView3"
+                app:srcCompat="@drawable/ic_smartphone"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"/>
+            <TextView
+                android:id="@+id/tvTelemovel"
+                style="@style/AppTheme.TextViewPadrao"
+                android:layout_marginEnd="20dp"
+                android:text="@string/telemovel" />
+
+        </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                android:id="@+id/textView5"
+                app:srcCompat="@drawable/ic_mail"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"/>
+
+            <TextView
+                android:id="@+id/tvEmail"
+                style="@style/AppTheme.TextViewPadrao"
+                android:text="@string/mailmakeaburger" />
+        </LinearLayout>
+
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp">
+
+
+            <LinearLayout
+                android:id="@+id/imagens"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageViewHamburguer"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitStart"
+                    android:src="@mipmap/hamburguer"/>
+
+                <ImageView
+                    android:id="@+id/imageViewEmpregadoHamburguer"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitStart"
+                    android:src="@mipmap/empregado_hamburgueria"/>
+
+                <ImageView
+                    android:id="@+id/imageViewHamburgueria"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitStart"
+                    android:src="@mipmap/hamburgueria" />
+
+            </LinearLayout>
+        </HorizontalScrollView>
+    </LinearLayout>
 </FrameLayout>

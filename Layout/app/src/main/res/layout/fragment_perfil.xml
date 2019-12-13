@@ -1,8 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".vista.fragmentos.PerfilFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvPerfil"
+            style="@style/AppTheme.TextViewTitulos"
+            android:layout_marginTop="32dp"
+            android:text="@string/perfil"
+            />
+
+    <LinearLayout
+        android:id="@+id/imagens"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:orientation="vertical"
+        android:layout_marginTop="32dp"
+        android:layout_gravity="center_horizontal">
+
+        <ImageView
+            android:id="@+id/imageViewHamburguer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:scaleType="fitStart"
+            app:srcCompat="@drawable/ic_perfil" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="32dp"
+        android:layout_margin="@dimen/activity_vertical_margin">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/textView4"
+            app:srcCompat="@drawable/ic_perfil"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+
+        <TextView
+            android:id="@+id/etNome"
+            style="@style/AppTheme.TextViewPadrao"
+            android:text="@string/Nome"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                android:id="@+id/textView5"
+                app:srcCompat="@drawable/ic_smartphone"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"/>
+        <TextView
+            android:id="@+id/etTelemovel"
+            style="@style/AppTheme.TextViewPadrao"
+            android:text="@string/Telemovel" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                android:id="@+id/textView8"
+                app:srcCompat="@drawable/ic_mail"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"/>
+            <TextView
+                android:id="@+id/etEmail"
+                style="@style/AppTheme.TextViewPadrao"
+                android:text="@string/Email"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+            <ImageView
+                android:id="@+id/textView10"
+                app:srcCompat="@drawable/ic_nif"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"/>
+            <TextView
+                android:id="@+id/etNif"
+                style="@style/AppTheme.TextViewPadrao"
+                android:text="@string/Nif"/>
+        </LinearLayout>
+
+
+            </LinearLayout>
+    </LinearLayout>
+
 
 </FrameLayout>

@@ -2,65 +2,31 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".vista.DetalhesProdutos">
+    android:layout_height="match_parent">
 
-
-    <ImageView
-        android:id="@+id/ivImagemDetalhe"
-        android:layout_width="0dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="65dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@color/colorPrimary" />
 
     <TextView
         android:id="@+id/etNomeDetalhe"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:layout_marginTop="100dp"
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivImagemDetalhe" />
-
-
-    <com.github.ivbaranov.mfb.MaterialFavoriteButton
-        android:id="@+id/favorite_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/ivImagemDetalhe"
-        app:layout_constraintEnd_toEndOf="parent"
-
-        app:mfb_animate_favorite="true"
-    app:mfb_animate_unfavorite="false"
-    app:mfb_padding="12"
-    app:mfb_favorite_image="@drawable/ic_favorito"
-    app:mfb_not_favorite_image="@drawable/ic_not_favorito"
-    app:mfb_rotation_duration="400"
-    app:mfb_rotation_angle="360"
-    app:mfb_bounce_duration="300"
-    app:mfb_size="48"
-
-    />
-
-    <!--   app:mfb_state="false"  -->
-
-
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/etPrecoDetalhe"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="50dp"
         android:ems="10"
         android:textAlignment="textEnd"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="50dp"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -71,14 +37,13 @@
         android:id="@+id/bttAdicionarPedidoDetalhes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="@string/bttAdicionar"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="50dp"
-        android:text="@string/bttAdicionar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
 
 
 
