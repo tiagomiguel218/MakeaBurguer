@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="amsi.dei.estg.ipleiria.layout">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,9 +15,10 @@
         <activity
             android:name=".vista.MenuPrincipalActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".vista.HamburguerCustomizadoctivity"
+            android:parentActivityName=".vista.fragmentos.ProdutosFragment" />
         <activity
             android:name=".vista.fragmentos.ContactosFragment"
             android:parentActivityName=".vista.MenuPrincipalActivity" />
@@ -37,16 +41,23 @@
             android:name=".vista.fragmentos.ProdutosFragment"
             android:parentActivityName=".vista.MenuPrincipalActivity" />
         <activity
+            android:name=".vista.fragmentos.HamburguerFragment"
+            android:parentActivityName=".vista.MenuPrincipalActivity" />
+        <activity
             android:name=".vista.fragmentos.PromocoesFragment"
             android:parentActivityName=".vista.MenuPrincipalActivity" />
         <activity
             android:name=".vista.fragmentos.ReservasFragment"
             android:parentActivityName=".vista.MenuPrincipalActivity" />
-
         <activity
             android:name=".vista.DetalhesProdutos"
             android:parentActivityName=".vista.fragmentos.ProdutosFragment" />
-
+        <activity
+            android:name=".vista.DetalhesHamburguer"
+            android:parentActivityName=".vista.fragmentos.HamburguerFragment" />
+        <activity
+            android:name=".vista.DetalhesPromocao"
+            android:parentActivityName=".vista.fragmentos.PromocoesFragment" />
         <activity
             android:name=".vista.RegistoActivity"
             android:parentActivityName=".vista.LoginActivity" />
@@ -56,8 +67,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-            </activity>
+        </activity>
     </application>
 
 </manifest>
