@@ -11,19 +11,28 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import amsi.dei.estg.ipleiria.layout.R;
 import amsi.dei.estg.ipleiria.layout.modelo.SessionHandler;
+import amsi.dei.estg.ipleiria.layout.modelo.Singleton;
 
 public class RegistoActivity extends AppCompatActivity {
-
-   /* private EditText etNome, etTelemovel, etMail, etNif, etPass;
+/*
+    private EditText etNome, etTelemovel, etMail, etNif, etPass;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+        protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registo);
 
-        Button btRegisto = findViewById(R.id.bttRegisto);
+       Button btRegisto = findViewById(R.id.bttRegisto);
         this.etNome = findViewById(R.id.etNome);
         this.etTelemovel = findViewById(R.id.etTelemovel);
         this.etMail = findViewById(R.id.etMail);
@@ -117,23 +126,31 @@ public class RegistoActivity extends AppCompatActivity {
 
     private static final String KEY_STATUS = "status";
     private static final String KEY_MESSAGE = "message";
-    private static final String KEY_FULL_NAME = "full_name";
+    private static final String KEY_NAME = "name";
     private static final String KEY_EMAIL = "email";
     private static final String KEY_PASSWORD = "password";
+    private static final String KEY_NIF="nif";
+    private static final String KEY_TELEMOVEL="telemovel";
     private static final String KEY_EMPTY = "";
+
 
     private EditText etEmail;
     private EditText etPassword;
     private EditText etConfirmPassword;
-    private EditText etFullName;
+    private EditText etNome;
+    private EditText etnif;
+    private EditText etTelemovel;
 
-    private String username;
+
+    private String email;
     private String password;
+    private String telemovel;
+    private String nif;
     private String confirmPassword;
-    private String fullName;
+    private String Nome;
 
     private ProgressDialog pDialog;
-    private String register_url = "http://localhost:8080";
+    private String register_url = "http://10.0.2.2:8080/clientes/post";
     private SessionHandler session;
 
     @Override
@@ -143,31 +160,28 @@ public class RegistoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_registo);
 
         etEmail = findViewById(R.id.etMail);
-        etPassword = findViewById(R.id.etPassword);
+        etPassword = findViewById(R.id.etPass);
         etConfirmPassword = findViewById(R.id.etPassRepetir);
-        etFullName = findViewById(R.id.etFullName);
+        etNome = findViewById(R.id.etNome);
+        etnif=findViewById(R.id.etNif);
+        etTelemovel=findViewById(R.id.etTelemovel);
 
-        Button login = findViewById(R.id.btnRegisterLogin);
-        Button register = findViewById(R.id.btnRegister);
 
-        //Launch Login screen when Login Button is clicked
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(RegisterActivity.this, LoginActivity.class);
-                startActivity(i);
-                finish();
-            }
-        });
+        Button register = findViewById(R.id.bttRegisto);
+
+
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Retrieve the data entered in the edit texts
-                username = etUsername.getText().toString().toLowerCase().trim();
+                email = etEmail.getText().toString().toLowerCase().trim();
                 password = etPassword.getText().toString().trim();
                 confirmPassword = etConfirmPassword.getText().toString().trim();
-                fullName = etFullName.getText().toString().trim();
+                Nome = etNome.getText().toString().trim();
+                nif=etnif.getText().toString().trim();
+                telemovel=etTelemovel.getText().toString().trim();
+
                 if (validateInputs()) {
                     registerUser();
                 }
@@ -180,22 +194,20 @@ public class RegistoActivity extends AppCompatActivity {
     /**
      * Display Progress bar while registering
      */
-    private void displayLoader() {
-        pDialog = new ProgressDialog(RegisterActivity.this);
+
+    private void displayLoader(){
+        pDialog = new ProgressDialog(RegistoActivity.this);
         pDialog.setMessage("Signing Up.. Please wait...");
         pDialog.setIndeterminate(false);
         pDialog.setCancelable(false);
         pDialog.show();
-
     }
 
-    /**
-     * Launch Dashboard Activity on Successful Sign Up
-     */
-    private void loadDashboard() {
-        Intent i = new Intent(getApplicationContext(), DashboardActivity.class);
-        startActivity(i);
-        finish();
+
+   private void loadMenuPrincipal(){
+            Intent intentPrincipal = new Intent(this, MenuPrincipalActivity.class);
+            startActivity(intentPrincipal);
+            finish();
 
     }
 
@@ -204,9 +216,11 @@ public class RegistoActivity extends AppCompatActivity {
         JSONObject request = new JSONObject();
         try {
             //Populate the request parameters
-            request.put(KEY_USERNAME, username);
+            request.put(KEY_NAME, Nome);
             request.put(KEY_PASSWORD, password);
-            request.put(KEY_FULL_NAME, fullName);
+            request.put(KEY_EMAIL, email);
+            request.put(KEY_NIF, nif);
+            request.put(KEY_TELEMOVEL, telemovel);
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -220,13 +234,13 @@ public class RegistoActivity extends AppCompatActivity {
                             //Check if user got registered successfully
                             if (response.getInt(KEY_STATUS) == 0) {
                                 //Set the user session
-                                session.loginUser(username,fullName);
-                                loadDashboard();
+                                session.loginUser(email,password);
+                                loadMenuPrincipal();
 
                             }else if(response.getInt(KEY_STATUS) == 1){
                                 //Display error message if username is already existsing
-                                etUsername.setError("Username already taken!");
-                                etUsername.requestFocus();
+                                etEmail.setError("Username already taken!");
+                                etEmail.requestFocus();
 
                             }else{
                                 Toast.makeText(getApplicationContext(),
@@ -251,23 +265,23 @@ public class RegistoActivity extends AppCompatActivity {
                 });
 
         // Access the RequestQueue through your singleton class.
-        MySingleton.getInstance(this).addToRequestQueue(jsArrayRequest);
+        Singleton.getInstance(this).addToRequestQueue(jsArrayRequest);
     }
 
     /**
      * Validates inputs and shows error if any
      * @return
      */
-    private boolean validateInputs() {
-        if (KEY_EMPTY.equals(fullName)) {
-            etFullName.setError("Full Name cannot be empty");
-            etFullName.requestFocus();
+    private boolean validateInputs(){
+        if (KEY_EMPTY.equals(Nome)) {
+            etNome.setError("Full Name cannot be empty");
+            etNome.requestFocus();
             return false;
 
         }
-        if (KEY_EMPTY.equals(username)) {
-            etUsername.setError("Username cannot be empty");
-            etUsername.requestFocus();
+        if (KEY_EMPTY.equals(email)) {
+            etEmail.setError("Username cannot be empty");
+            etEmail.requestFocus();
             return false;
         }
         if (KEY_EMPTY.equals(password)) {
@@ -292,7 +306,4 @@ public class RegistoActivity extends AppCompatActivity {
 
 
 
-
-
-
-}
+    }

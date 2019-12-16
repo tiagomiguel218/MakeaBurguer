@@ -113,7 +113,7 @@ public class LoginActivity extends AppCompatActivity {
     private String email;
     private String password;
     private ProgressDialog pDialog;
-    private String login_url = "http://localhost:8080";
+    private String login_url = "http://10.0.2.2:8080/clientes/mail";
     private SessionHandler session;
 
     @Override
@@ -161,8 +161,8 @@ public class LoginActivity extends AppCompatActivity {
      * Launch Dashboard Activity on Successful Login
      */
     private void loadMenuPrincipal() {
-        Intent i = new Intent(getApplicationContext(), MenuPrincipalActivity.class);
-        startActivity(i);
+        Intent intentPrincipal = new Intent(this, MenuPrincipalActivity.class);
+        startActivity(intentPrincipal);
         finish();
 
     }

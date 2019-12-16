@@ -7,8 +7,8 @@ public class User {
 
     String email;
     String nome;
-   // String telemovel;
-    //String nif;
+   String telemovel;
+    String nif;
     Date sessionExpiryDate;
 
     public String getEmail() {
