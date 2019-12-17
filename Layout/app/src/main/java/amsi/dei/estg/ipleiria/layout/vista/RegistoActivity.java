@@ -150,7 +150,7 @@ public class RegistoActivity extends AppCompatActivity {
     private String Nome;
 
     private ProgressDialog pDialog;
-    private String register_url = "http://10.0.2.2:8080/clientes/post";
+    private String register_url = "http://10.0.2.2:8080/cliente/post";
     private SessionHandler session;
 
     @Override
