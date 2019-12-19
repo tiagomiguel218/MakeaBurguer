@@ -19,7 +19,6 @@ import com.google.android.material.snackbar.Snackbar;
 
 import amsi.dei.estg.ipleiria.layout.R;
 import amsi.dei.estg.ipleiria.layout.data.FavoriteContract;
-import amsi.dei.estg.ipleiria.layout.data.FavoriteDBHelper;
 import amsi.dei.estg.ipleiria.layout.modelo.GestorProdutos;
 import amsi.dei.estg.ipleiria.layout.modelo.Produtos;
 
@@ -27,7 +26,7 @@ public class DetalhesProdutos extends AppCompatActivity {
 
     private TextView etNomeDetalhe, etPrecoDetalhe;
     private ImageView ivImagemDetalhe;
-    private FavoriteDBHelper favoriteDBHelper;
+    //private FavoriteDBHelper favoriteDBHelper;
     private SQLiteDatabase pdb;
     private Produtos favorite;
     private final AppCompatActivity activity = DetalhesProdutos.this;
@@ -41,8 +40,8 @@ public class DetalhesProdutos extends AppCompatActivity {
         setContentView(R.layout.activity_detalhes_produtos);
 
 
-        FavoriteDBHelper dbHelper = new FavoriteDBHelper(this);
-        pdb = dbHelper.getWritableDatabase();
+       //FavoriteDBHelper dbHelper = new FavoriteDBHelper(this);
+        //pdb = dbHelper.getWritableDatabase();
 
         Button btAdicionar = findViewById(R.id.bttAdicionarPedidoDetalhes);
 

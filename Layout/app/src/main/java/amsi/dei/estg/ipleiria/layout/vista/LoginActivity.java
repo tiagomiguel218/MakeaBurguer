@@ -2,30 +2,18 @@ package amsi.dei.estg.ipleiria.layout.vista;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
-
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import amsi.dei.estg.ipleiria.layout.R;
-import amsi.dei.estg.ipleiria.layout.modelo.SessionHandler;
-import amsi.dei.estg.ipleiria.layout.modelo.Singleton;
 
 public class LoginActivity extends AppCompatActivity {
 
-   /* private EditText etMail, etPass;
+    private EditText etMail, etPass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,17 +41,16 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-
     private void verificaLogin() {
         String pass = this.etPass.getText().toString();
         String mail = this.etMail.getText().toString();
 
-        if(!isEmailValido(mail)){
+        if (!isEmailValido(mail)) {
             this.etMail.setError(getString(R.string.TextErrorMail));
             return;
         }
 
-        if(!isPasswordValida(pass)) {
+        if (!isPasswordValida(pass)) {
             this.etPass.setError(getString(R.string.TextErrorPassword));
             return;
         }
@@ -77,32 +64,32 @@ public class LoginActivity extends AppCompatActivity {
         finish();
     }
 
-    private boolean isEmailValido(String mail){
-        if(mail == null)
+    private boolean isEmailValido(String mail) {
+        if (mail == null)
             return false;
 
         return Patterns.EMAIL_ADDRESS.matcher(mail).matches();
     }
 
-    private boolean isPasswordValida(String password){
-        if(password == null)
+    private boolean isPasswordValida(String password) {
+        if (password == null)
             return false;
-        if(password.length() < 8)
+        if (password.length() < 8)
             return false;
-        if(password.length() > 20)
+        if (password.length() > 20)
             return false;
         return true;
     }
-*/
-    /*private void mostraRegisto() {
+
+    private void mostraRegisto() {
         Intent intentRegisto = new Intent(this, RegistoActivity.class);
         startActivity(intentRegisto);
         finish();
     }
-*/
+}
 
 
-    private static final String KEY_STATUS = "status";
+   /* private static final String KEY_STATUS = "status";
     private static final String KEY_MESSAGE = "message";
     private static final String KEY_EMAIL = "email";
     private static final String KEY_NAME = "nome";
@@ -157,9 +144,9 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    /**
+    *//**
      * Launch Dashboard Activity on Successful Login
-     */
+     *//*
     private void loadMenuPrincipal() {
         Intent intentPrincipal = new Intent(this, MenuPrincipalActivity.class);
         startActivity(intentPrincipal);
@@ -167,9 +154,9 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    /**
+    *//**
      * Display Progress bar while Logging in
-     */
+     *//*
 
     private void displayLoader() {
         pDialog = new ProgressDialog(LoginActivity.this);
@@ -226,13 +213,13 @@ public class LoginActivity extends AppCompatActivity {
                 });
 
         // Access the RequestQueue through your singleton class.
-        Singleton.getInstance(this).addToRequestQueue(jsArrayRequest);
+        SingletonM.getInstance(this).addToRequestQueue(jsArrayRequest);
     }
 
-    /**
+    *//**
      * Validates inputs and shows error if any
      * @return
-     */
+     *//*
     private boolean validateInputs() {
         if(KEY_EMPTY.equals(email)){
             etEmail.setError("Username cannot be empty");
@@ -247,6 +234,6 @@ public class LoginActivity extends AppCompatActivity {
         return true;
     }
 
-    }
+    }*/
 
 

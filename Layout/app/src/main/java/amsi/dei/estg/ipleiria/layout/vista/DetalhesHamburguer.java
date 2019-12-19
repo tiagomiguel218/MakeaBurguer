@@ -19,7 +19,6 @@ import com.google.android.material.snackbar.Snackbar;
 import amsi.dei.estg.ipleiria.layout.R;
 
 import amsi.dei.estg.ipleiria.layout.data.FavoriteContract;
-import amsi.dei.estg.ipleiria.layout.data.FavoriteDBHelper;
 import amsi.dei.estg.ipleiria.layout.modelo.GestorHamburguer;
 import amsi.dei.estg.ipleiria.layout.modelo.GestorProdutos;
 import amsi.dei.estg.ipleiria.layout.modelo.Produtos;
@@ -28,13 +27,13 @@ public class DetalhesHamburguer extends AppCompatActivity {
 
     private TextView etNomeDetalhe, etPrecoDetalhe;
     private ImageView ivImagemDetalhe;
-    private FavoriteDBHelper favoriteDBHelper;
+   /* private FavoriteDBHelper favoriteDBHelper;
     private SQLiteDatabase pdb;
     private Produtos favorite;
     private final AppCompatActivity activity = DetalhesHamburguer.this;
     Produtos produtos;
     String nome;
-    int preco, imagem, produto_id;
+    int preco, imagem, produto_id;*/
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -42,8 +41,8 @@ public class DetalhesHamburguer extends AppCompatActivity {
         setContentView(R.layout.activity_detalhes_produtos);
 
 
-        FavoriteDBHelper dbHelper = new FavoriteDBHelper(this);
-        pdb = dbHelper.getWritableDatabase();
+       // FavoriteDBHelper dbHelper = new FavoriteDBHelper(this);
+       // pdb = dbHelper.getWritableDatabase();
 
         Button btAdicionar = findViewById(R.id.bttAdicionarPedidoDetalhes);
 
@@ -53,7 +52,7 @@ public class DetalhesHamburguer extends AppCompatActivity {
 
         int indice = getIntent().getIntExtra("indice", -1);
 
-        Produtos produto = GestorProdutos.getInstance().getProdutos(indice);
+        Produtos produto = GestorHamburguer.getInstance(this).getHamburger(indice);
 
 
         this.ivImagemDetalhe.setImageResource(produto.getImagem());

@@ -12,11 +12,11 @@ import java.util.List;
 
 import amsi.dei.estg.ipleiria.layout.modelo.Produtos;
 
-public class FavoriteDBHelper extends SQLiteOpenHelper {
+//public class FavoriteDBHelper extends SQLiteOpenHelper {
 
-    private static final String DABASE_NAME ="favorite.db";
+   /* private static final String DABASE_NAME = "favorite.db";
 
-    private static final int DATABASE_VERSION =1;
+    private static final int DATABASE_VERSION = 1;
 
     public static final String LOGTAG = "FAVORITE";
 
@@ -24,21 +24,21 @@ public class FavoriteDBHelper extends SQLiteOpenHelper {
     SQLiteOpenHelper dbhandler;
     SQLiteDatabase db;
 
-    public FavoriteDBHelper (Context context){
+    public FavoriteDBHelper(Context context) {
         super(context, DABASE_NAME, null, DATABASE_VERSION);
     }
 
-    public void open(){
+    public void open() {
         Log.i(LOGTAG, "Database Opened");
-        db=dbhandler.getWritableDatabase();
+        db = dbhandler.getWritableDatabase();
     }
 
-    public void close(){
+    public void close() {
         Log.i(LOGTAG, "Database Closed");
         dbhandler.close();
     }
 
-
+/*
 
 
     @Override
@@ -119,4 +119,5 @@ public class FavoriteDBHelper extends SQLiteOpenHelper {
         return favoriteList;
 
     }
-}
+}*/
+

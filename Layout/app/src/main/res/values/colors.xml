@@ -4,4 +4,8 @@
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#ffffff</color>
     <color name="Favorito">#d32f2f</color>
+
+    <color name="color1">#ff9100</color>
+    <color name="color2">#ffc246</color>
+    <color name="color3">#c56200</color>
 </resources>

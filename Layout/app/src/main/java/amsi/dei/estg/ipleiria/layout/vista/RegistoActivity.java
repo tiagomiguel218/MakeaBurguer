@@ -21,10 +21,10 @@ import org.json.JSONObject;
 
 import amsi.dei.estg.ipleiria.layout.R;
 import amsi.dei.estg.ipleiria.layout.modelo.SessionHandler;
-import amsi.dei.estg.ipleiria.layout.modelo.Singleton;
+import amsi.dei.estg.ipleiria.layout.modelo.SingletonM;
 
 public class RegistoActivity extends AppCompatActivity {
-/*
+
     private EditText etNome, etTelemovel, etMail, etNif, etPass;
 
     @Override
@@ -122,9 +122,9 @@ public class RegistoActivity extends AppCompatActivity {
             return false;
         return true;
     }
-*/
 
-    private static final String KEY_STATUS = "status";
+
+   /* private static final String KEY_STATUS = "status";
     private static final String KEY_MESSAGE = "message";
     private static final String KEY_NAME = "name";
     private static final String KEY_EMAIL = "email";
@@ -191,9 +191,9 @@ public class RegistoActivity extends AppCompatActivity {
 
     }
 
-    /**
+    *//**
      * Display Progress bar while registering
-     */
+     *//*
 
     private void displayLoader(){
         pDialog = new ProgressDialog(RegistoActivity.this);
@@ -265,13 +265,13 @@ public class RegistoActivity extends AppCompatActivity {
                 });
 
         // Access the RequestQueue through your singleton class.
-        Singleton.getInstance(this).addToRequestQueue(jsArrayRequest);
+        SingletonM.getInstance(this).addToRequestQueue(jsArrayRequest);
     }
 
-    /**
+    *//**
      * Validates inputs and shows error if any
      * @return
-     */
+     *//*
     private boolean validateInputs(){
         if (KEY_EMPTY.equals(Nome)) {
             etNome.setError("Full Name cannot be empty");
@@ -303,7 +303,7 @@ public class RegistoActivity extends AppCompatActivity {
 
         return true;
     }
-
+*/
 
 
     }

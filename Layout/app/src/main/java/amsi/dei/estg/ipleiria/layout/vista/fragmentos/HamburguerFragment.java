@@ -6,29 +6,40 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.GridView;
 
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Random;
+
 import amsi.dei.estg.ipleiria.layout.R;
 import amsi.dei.estg.ipleiria.layout.adaptador.GridViewAdaptadorHamburguer;
+import amsi.dei.estg.ipleiria.layout.listenners.HamburgerListenner;
 import amsi.dei.estg.ipleiria.layout.modelo.GestorHamburguer;
+import amsi.dei.estg.ipleiria.layout.modelo.Produtos;
+import amsi.dei.estg.ipleiria.layout.utils.HamburgerJsonParse;
 import amsi.dei.estg.ipleiria.layout.vista.DetalhesHamburguer;
-import amsi.dei.estg.ipleiria.layout.vista.DetalhesProdutos;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HamburguerFragment extends Fragment {
+public class HamburguerFragment extends Fragment implements HamburgerListenner {
 
     private GridView gridviewHamburguer;
     private GridViewAdaptadorHamburguer adaptadorhamburguer;
+    private GestorHamburguer gestorHamburger;
+
 
     public HamburguerFragment() {
         // Required empty public constructor
@@ -41,28 +52,73 @@ public class HamburguerFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_hamburguer, container, false);
 
+        final SwipeRefreshLayout refleshLayout;
 
-        this.gridviewHamburguer = view.findViewById(R.id.gridViewHamburguer);
+        refleshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swiperefresh);
+        refleshLayout.setColorSchemeResources(R.color.color1, R.color.color2, R.color.color3);
 
-        this.adaptadorhamburguer = new GridViewAdaptadorHamburguer(getContext(), GestorHamburguer.getInstance().getListaHamburguer());
+        gestorHamburger = GestorHamburguer.getInstance(getContext());
+        gestorHamburger.setHamburgerListener(this);
+        gestorHamburger.getAllHamburgerAPI(getContext(), HamburgerJsonParse.isConnectionInternet(getContext()));
 
-        this.gridviewHamburguer.setAdapter(adaptadorhamburguer);
-
-        this.gridviewHamburguer.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        refleshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                mostraDetalhes(position);
+            public void onRefresh() {
+
+                adaptadorhamburguer.notifyDataSetChanged();
+                refleshLayout.setRefreshing(false);
             }
         });
 
 
-        return view;
-    }
+            refleshLayout.post(new Runnable() {
+                @Override
+                public void run() {
+                    refleshLayout.setRefreshing(true);
 
-    private void mostraDetalhes(int position) {
-        Intent intentDetalhe = new Intent(getContext(), DetalhesHamburguer.class);
+                    gestorHamburger.getAllHamburgerAPI(getContext(), HamburgerJsonParse.isConnectionInternet(getContext()));
+
+                }
+            });
+
+
+
+            this.gridviewHamburguer = view.findViewById(R.id.gridViewHamburguer);
+
+
+            this.adaptadorhamburguer = new GridViewAdaptadorHamburguer(getContext(), GestorHamburguer.getInstance(getContext()).getListaHamburguer());
+
+            this.gridviewHamburguer.setAdapter(adaptadorhamburguer);
+
+            this.gridviewHamburguer.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    mostraDetalheHamburger(position);
+                }
+            });
+            return view;
+        }
+
+
+
+
+    private void mostraDetalheHamburger(int position) {
+        Intent intentDetalhe=new Intent(getContext(), DetalhesHamburguer.class);
         intentDetalhe.putExtra("indice", position);
         startActivity(intentDetalhe);
+    }
+
+
+    @Override
+    public void onRefreshListaHamburger(ArrayList<Produtos> listaHamburger) {
+        adaptadorhamburguer=new GridViewAdaptadorHamburguer(getContext(), listaHamburger);
+        gridviewHamburguer.setAdapter(adaptadorhamburguer);
+        adaptadorhamburguer.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onUpdateListaHamburger(Produtos hamburger, int operacao) {
+
     }
 }
 

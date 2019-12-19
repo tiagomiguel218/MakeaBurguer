@@ -25,13 +25,12 @@ import java.util.List;
 
 import amsi.dei.estg.ipleiria.layout.R;
 import amsi.dei.estg.ipleiria.layout.adaptador.GridViewAdaptadorProdutos;
-import amsi.dei.estg.ipleiria.layout.data.FavoriteDBHelper;
 import amsi.dei.estg.ipleiria.layout.modelo.Produtos;
 
 public class FavoritoFragment extends Fragment {
 
     private GridView gridViewFavoritos;
-    private static FavoriteDBHelper favoriteDBHelper;
+    //private static FavoriteDBHelper favoriteDBHelper;
     private static ArrayList<Produtos> produtosList;
     private GridViewAdaptadorProdutos adaptadorProdutos;
 
@@ -58,16 +57,16 @@ public class FavoritoFragment extends Fragment {
         adaptadorProdutos = new GridViewAdaptadorProdutos(getContext(), produtosList);
 
         adaptadorProdutos.notifyDataSetChanged();
-        favoriteDBHelper = new FavoriteDBHelper(getContext());
+       // favoriteDBHelper = new FavoriteDBHelper(getContext());
 
-        getAllFavorite();
+     //   getAllFavorite();
 
 
         return view;
     }
 
 
-    private void getAllFavorite(){
+  /*  private void getAllFavorite(){
         new AsyncTask<Void, Void, Void>(){
             @Override
             protected Void doInBackground(Void... params){
@@ -82,6 +81,8 @@ public class FavoritoFragment extends Fragment {
             }
         }.execute();
     }
+    */
+
 
 
 

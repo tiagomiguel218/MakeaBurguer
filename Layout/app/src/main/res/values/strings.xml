@@ -67,6 +67,7 @@
     <string name="Titulo">Nome do Hamburguer</string>
     <string name="bttAdicionarNovo">Adicionar Hamburguer Personalizado</string>
     <string name="adicionado">Foi adicionado aos favoritos!</string>
+    <string name="menu_refresh">Refresh</string>
 
 
     <string-array name="items_lugares">
