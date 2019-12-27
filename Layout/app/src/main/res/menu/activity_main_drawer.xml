@@ -10,7 +10,7 @@
                 <item
                     android:id="@+id/nav_hamburguer"
                     android:icon="@drawable/ic_hamburguer"
-                    android:title="@string/hamburguer"
+                    android:title="@string/hamburger"
                     android:checkable="true"/>
                 <item
                     android:id="@+id/nav_bebidas"

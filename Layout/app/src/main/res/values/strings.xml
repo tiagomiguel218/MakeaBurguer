@@ -21,7 +21,7 @@
     <string name="TextErrorNif">O nif indicado não é válida. Deve ter pelo menos 9 carateres.</string>
     <string name="TextErrorNome">O nome indicada não é válida.</string>
     <string name="TextErrorTelemovel">O telemovel indicada não é válida. Deve ter pelo menos 9 carateres.</string>
-    <string name="hamburguer">Hamburguer</string>
+    <string name="hamburger">Hamburguer</string>
     <string name="favoritos">Favoritos</string>
     <string name="pedidos_reservas">Pedidos e Reservas</string>
     <string name="pedidos">Meu Pedido</string>

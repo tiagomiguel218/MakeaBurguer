@@ -6,10 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".vista.fragmentos.ProdutosFragment">
 
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swiperefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
     <GridView
         android:id="@+id/gridViewProdutos"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:numColumns="auto_fit" />
-
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </FrameLayout>

@@ -30,6 +30,8 @@ public class ProdutosFragment extends Fragment {
             () {
         // Required empty public constructor
     }
+    //produtos nao precisa de fragmento
+    //é preciso fazer os fragmentos das bebidas, acompanhamentos e sobremesas
 
 
     @Override
@@ -45,7 +47,7 @@ public class ProdutosFragment extends Fragment {
 
         //GridView primeiro hamburguer
 
-        adaptadorprodutos = new GridViewAdaptadorProdutos(getContext(), GestorProdutos.getInstance().getListaProdutos());
+        //adaptadorprodutos = new GridViewAdaptadorProdutos(getContext(), GestorProdutos.getInstance().getListaProdutos());
         this.gridviewProdutos.setAdapter(adaptadorprodutos);
         this.gridviewProdutos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

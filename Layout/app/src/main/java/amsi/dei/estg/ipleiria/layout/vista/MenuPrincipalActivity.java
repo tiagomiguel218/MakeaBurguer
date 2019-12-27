@@ -78,7 +78,7 @@ public class MenuPrincipalActivity extends AppCompatActivity implements Navigati
         navigationView.setCheckedItem(R.id.nav_hamburguer);
         Fragment fragmento = new HamburguerFragment();
         fragmentManager.beginTransaction().replace(R.id.contentFragment, fragmento).commit();
-        setTitle("Hamburguer");
+        setTitle("Hamburger");
     }
 
 

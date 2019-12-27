@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import amsi.dei.estg.ipleiria.layout.R;
+import amsi.dei.estg.ipleiria.layout.modelo.Hamburger;
 import amsi.dei.estg.ipleiria.layout.modelo.Produtos;
 
 public class GridViewAdaptadorProdutos extends BaseAdapter {
@@ -56,7 +57,6 @@ public class GridViewAdaptadorProdutos extends BaseAdapter {
             holder=new ViewHolderLista(convertView);
             convertView.setTag(holder);
         }
-        holder.update(listaProdutos.get(position));
         return convertView;
     }
 
@@ -70,10 +70,5 @@ public class GridViewAdaptadorProdutos extends BaseAdapter {
             this.ivImagem=view.findViewById(R.id.ivImagem);
         }
 
-        public void update(Produtos produtos){
-            this.tvNome.setText(produtos.getNome());
-            this.tvPreco.setText(produtos.getPreco()+"");
-            this.ivImagem.setImageResource(produtos.getImagem());
-        }
     }
 }

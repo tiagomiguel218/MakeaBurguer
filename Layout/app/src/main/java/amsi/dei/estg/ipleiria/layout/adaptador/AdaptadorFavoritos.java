@@ -11,29 +11,29 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import amsi.dei.estg.ipleiria.layout.R;
-import amsi.dei.estg.ipleiria.layout.modelo.Produtos;
+import amsi.dei.estg.ipleiria.layout.modelo.Hamburger;
 
 public class AdaptadorFavoritos extends BaseAdapter {
 
-    private ArrayList<Produtos> listaHamburguer;
+    private ArrayList<Hamburger> listaHamburger;
 
     private Context contexto;
     private LayoutInflater inflater;
 
 
-    public AdaptadorFavoritos(Context context, ArrayList<Produtos> hamburguer) {
+    public AdaptadorFavoritos(Context context, ArrayList<Hamburger> hamburger) {
         this.contexto = context;
-        this.listaHamburguer = hamburguer;
+        this.listaHamburger = hamburger;
     }
 
     @Override
     public int getCount() {
-        return listaHamburguer.size();
+        return listaHamburger.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return this.listaHamburguer.get(position);
+        return this.listaHamburger.get(position);
     }
 
     @Override
@@ -52,7 +52,7 @@ public class AdaptadorFavoritos extends BaseAdapter {
             holder = new ViewHolderLista(convertView);
             convertView.setTag(holder);
         }
-        holder.update(listaHamburguer.get(position));
+        holder.update(listaHamburger.get(position));
         return convertView;
     }
 
@@ -67,10 +67,10 @@ public class AdaptadorFavoritos extends BaseAdapter {
             this.ivImagem = view.findViewById(R.id.ivImagem);
         }
 
-        public void update(Produtos hamburguer) {
-            this.tvNome.setText(hamburguer.getNome());
-            this.tvPreco.setText(hamburguer.getPreco() + "");
-            this.ivImagem.setImageResource(hamburguer.getImagem());
+        public void update(Hamburger hamburger) {
+            this.tvNome.setText(hamburger.getNome());
+            this.tvPreco.setText(hamburger.getPreco() + "");
+            this.ivImagem.setImageResource(hamburger.getImagem());
         }
     }
 }

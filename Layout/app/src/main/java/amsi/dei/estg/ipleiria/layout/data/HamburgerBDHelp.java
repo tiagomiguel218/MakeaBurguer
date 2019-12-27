@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
 
-import amsi.dei.estg.ipleiria.layout.modelo.Produtos;
+import amsi.dei.estg.ipleiria.layout.modelo.Hamburger;
 
 public class HamburgerBDHelp extends SQLiteOpenHelper {
 
@@ -30,8 +30,8 @@ public class HamburgerBDHelp extends SQLiteOpenHelper {
         db.execSQL(" CREATE TABLE IF NOT EXISTS Hamburger " +
                 " (id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 " Nome TEXT NOT NULL, " +
-                " Preco INTEGER NOT NULL, " +
-                " Imagem INTEGER NOT NULL); ");
+                " Preco DOUBLE NOT NULL, " +
+                " Imagem TEXT NOT NULL); ");
     }
 
     @Override
@@ -41,7 +41,7 @@ public class HamburgerBDHelp extends SQLiteOpenHelper {
     }
     //operaçoes crud sobre a bd
 
-    public Produtos inserirHamburgerBD(Produtos hamburger) {
+   /* public Hamburger inserirHamburgerBD(Hamburger hamburger) {
         ContentValues dados = new ContentValues();
         dados.put("Nome", hamburger.getNome());
         dados.put("Preco", hamburger.getPreco());
@@ -53,9 +53,9 @@ public class HamburgerBDHelp extends SQLiteOpenHelper {
             return hamburger;
         }
         return null;
-    }
+    }*/
 
-    public boolean atualizarHamburgerBD(int id, Produtos dadosHamburger) {
+    /*public boolean atualizarHamburgerBD(int id, Hamburger dadosHamburger) {
         ContentValues dados = new ContentValues();
         dados.put("Nome", dadosHamburger.getNome());
         dados.put("Preco", dadosHamburger.getPreco());
@@ -65,16 +65,16 @@ public class HamburgerBDHelp extends SQLiteOpenHelper {
     }
     public boolean deleteHamburgerBD(int id){
         return this.bd.delete("Hamburger", "id=?", new String[]{""+id})==1;
-    }
+    }*/
 
-    public ArrayList<Produtos> getAllHamburger(){
-        ArrayList<Produtos> lista = new ArrayList<Produtos>();
+    public ArrayList<Hamburger> getAllHamburger(){
+        ArrayList<Hamburger> lista = new ArrayList<Hamburger>();
         Cursor cursor = this.bd.query("Hamburger", new String[]{"id", "Nome", "Preco", "Imagem"}, null, null, null, null, null);
         while(cursor.moveToNext()){
-            Produtos hamburger= new Produtos(cursor.getInt(0),
+            Hamburger hamburger= new Hamburger(cursor.getInt(0),
                     cursor.getString(1),
-                    cursor.getInt(2),
-                    cursor.getInt(3));
+                    cursor.getDouble(2),
+                    cursor.getString(3));
             lista.add(hamburger);
         }
         return lista;

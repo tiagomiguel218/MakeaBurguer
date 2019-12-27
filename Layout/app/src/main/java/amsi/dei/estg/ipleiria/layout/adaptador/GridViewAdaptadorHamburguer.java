@@ -11,31 +11,31 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import amsi.dei.estg.ipleiria.layout.R;
-import amsi.dei.estg.ipleiria.layout.modelo.Produtos;
+import amsi.dei.estg.ipleiria.layout.modelo.Hamburger;
 
 public class GridViewAdaptadorHamburguer extends BaseAdapter {
 
-    private ArrayList<Produtos> listaHamburguer;
+    private ArrayList<Hamburger> listaHamburger;
 
     private Context contexto;
     private LayoutInflater inflater;
 
 
-    public GridViewAdaptadorHamburguer(Context context, ArrayList<Produtos> hamburguer) {
+    public GridViewAdaptadorHamburguer(Context context, ArrayList<Hamburger> hamburger) {
         this.contexto = context;
-        this.listaHamburguer = hamburguer;
+        this.listaHamburger = hamburger;
 
 
     }
 
     @Override
     public int getCount() {
-        return this.listaHamburguer.size();
+        return this.listaHamburger.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return this.listaHamburguer.get(position);
+        return this.listaHamburger.get(position);
     }
 
     @Override
@@ -55,7 +55,7 @@ public class GridViewAdaptadorHamburguer extends BaseAdapter {
             holder = new ViewHolderLista(convertView);
             convertView.setTag(holder);
         }
-        //holder.update(listaHamburguer.get(position));
+        //holder.update(listaHamburger.get(position));
         return convertView;
     }
 
@@ -69,11 +69,6 @@ public class GridViewAdaptadorHamburguer extends BaseAdapter {
             this.ivImagem = view.findViewById(R.id.ivImagem);
         }
 
-       /* public void update(Produtos hamburguer){
-            this.tvNome.setText(hamburguer.getNome());
-            this.tvPreco.setText(hamburguer.getPreco()+"");
-            this.ivImagem.setImageResource(hamburguer.getImagem());
-        }
-    }*/
+
     }
 }

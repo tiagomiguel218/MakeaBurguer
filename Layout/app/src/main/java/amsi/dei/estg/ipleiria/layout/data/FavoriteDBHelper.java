@@ -1,17 +1,5 @@
 package amsi.dei.estg.ipleiria.layout.data;
 
-import android.content.ContentValues;
-import android.content.Context;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import amsi.dei.estg.ipleiria.layout.modelo.Produtos;
-
 //public class FavoriteDBHelper extends SQLiteOpenHelper {
 
    /* private static final String DABASE_NAME = "favorite.db";
@@ -61,7 +49,7 @@ import amsi.dei.estg.ipleiria.layout.modelo.Produtos;
         onCreate(db);
     }
 
-    public void addFavorite(Produtos produt){
+    public void addFavorite(Hamburger produt){
         SQLiteDatabase db =this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -80,7 +68,7 @@ import amsi.dei.estg.ipleiria.layout.modelo.Produtos;
         db.delete(FavoriteContract.FavoriteEntry.TABLE_NAME, FavoriteContract.FavoriteEntry.COLUMN_PRODUCTID + "=" + id, null);
     }
 
-    public List<Produtos> getAllFavorite(){
+    public List<Hamburger> getAllFavorite(){
         String[] columns={
                 FavoriteContract.FavoriteEntry._ID,
                 FavoriteContract.FavoriteEntry.COLUMN_PRODUCTID,
@@ -91,7 +79,7 @@ import amsi.dei.estg.ipleiria.layout.modelo.Produtos;
         };
         String sortOrder=
                 FavoriteContract.FavoriteEntry._ID + " ASC ";
-        List<Produtos> favoriteList = new ArrayList<>();
+        List<Hamburger> favoriteList = new ArrayList<>();
 
         SQLiteDatabase db=this.getReadableDatabase();
 
@@ -105,7 +93,7 @@ import amsi.dei.estg.ipleiria.layout.modelo.Produtos;
 
         if(cursor.moveToFirst()){
             do{
-                Produtos produtos = new Produtos();
+                Hamburger produtos = new Hamburger();
                 produtos.setId(Integer.parseInt(cursor.getString(cursor.getColumnIndex(FavoriteContract.FavoriteEntry.COLUMN_PRODUCTID))));
                 produtos.setNome(cursor.getString(cursor.getColumnIndex(FavoriteContract.FavoriteEntry.COLUMN_NAME)));
                 produtos.setPreco(Integer.parseInt(cursor.getString(cursor.getColumnIndex(FavoriteContract.FavoriteEntry.COLUMN_PRICE))));

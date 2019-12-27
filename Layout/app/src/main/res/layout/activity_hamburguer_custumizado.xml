@@ -54,7 +54,7 @@
 
 
                 <TextView
-                    android:id="@+id/tViewIngredientes1"
+                    android:id="@+id/tViewIngredientesPao"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
@@ -62,7 +62,7 @@
                     android:text="@string/tviewingredientes" />
 
                 <Spinner
-                    android:id="@+id/spinner1"
+                    android:id="@+id/spinnerPao"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="32dp"
@@ -71,7 +71,7 @@
                     android:textAlignment="center" />
 
                 <TextView
-                    android:id="@+id/tViewIngredientes2"
+                    android:id="@+id/tViewIngredientesMolho"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
@@ -80,7 +80,7 @@
                     />
 
                 <Spinner
-                    android:id="@+id/spinner2"
+                    android:id="@+id/spinnerMolho"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="32dp"
@@ -90,39 +90,72 @@
 
 
                 <TextView
-                    android:id="@+id/tViewIngredientes3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginTop="32dp"
-                    android:text="@string/tviewingredientes" />
+            android:id="@+id/tViewIngredientesCarne"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="32dp"
+            android:text="@string/tviewingredientes" />
 
-                <Spinner
-                    android:id="@+id/spinner3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="32dp"
-                    android:entries="@array/items_lugares"
-                    android:gravity="center_horizontal"
-                    android:textAlignment="center" />
+            <Spinner
+                android:id="@+id/spinnerCarne"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:entries="@array/items_lugares"
+                android:gravity="center_horizontal"
+                android:textAlignment="center" />
 
-                <TextView
-                    android:id="@+id/tViewIngredientes4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginTop="32dp"
-                    android:text="@string/tviewingredientes" />
+            <TextView
+                android:id="@+id/tViewIngredientesVegetais"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="32dp"
+                android:text="@string/tviewingredientes" />
 
-                <Spinner
-                    android:id="@+id/spinner4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="32dp"
-                    android:entries="@array/items_lugares"
-                    android:gravity="center_horizontal"
-                    android:textAlignment="center" />
+            <Spinner
+                android:id="@+id/spinnerVegetais"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:entries="@array/items_lugares"
+                android:gravity="center_horizontal"
+                android:textAlignment="center" />
 
+            <TextView
+                android:id="@+id/tViewIngredientesQueijo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="32dp"
+                android:text="@string/tviewingredientes" />
+
+            <Spinner
+                android:id="@+id/spinnerQueijo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:entries="@array/items_lugares"
+                android:gravity="center_horizontal"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tViewIngredientesComplemento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="32dp"
+                android:text="@string/tviewingredientes" />
+
+            <Spinner
+                android:id="@+id/spinnerComplemento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:entries="@array/items_lugares"
+                android:gravity="center_horizontal"
+                android:textAlignment="center" />
 
             <Button
                 android:id="@+id/bttAdicionar"

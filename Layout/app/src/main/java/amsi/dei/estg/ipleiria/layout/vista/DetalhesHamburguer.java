@@ -1,11 +1,8 @@
 package amsi.dei.estg.ipleiria.layout.vista;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.SharedPreferences;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
+
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -13,15 +10,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-import com.github.ivbaranov.mfb.MaterialFavoriteButton;
-import com.google.android.material.snackbar.Snackbar;
-
 import amsi.dei.estg.ipleiria.layout.R;
 
-import amsi.dei.estg.ipleiria.layout.data.FavoriteContract;
 import amsi.dei.estg.ipleiria.layout.modelo.GestorHamburguer;
-import amsi.dei.estg.ipleiria.layout.modelo.GestorProdutos;
-import amsi.dei.estg.ipleiria.layout.modelo.Produtos;
+import amsi.dei.estg.ipleiria.layout.modelo.Hamburger;
 
 public class DetalhesHamburguer extends AppCompatActivity {
 
@@ -29,9 +21,9 @@ public class DetalhesHamburguer extends AppCompatActivity {
     private ImageView ivImagemDetalhe;
    /* private FavoriteDBHelper favoriteDBHelper;
     private SQLiteDatabase pdb;
-    private Produtos favorite;
+    private Hamburger favorite;
     private final AppCompatActivity activity = DetalhesHamburguer.this;
-    Produtos produtos;
+    Hamburger hamburger;
     String nome;
     int preco, imagem, produto_id;*/
 
@@ -52,12 +44,12 @@ public class DetalhesHamburguer extends AppCompatActivity {
 
         int indice = getIntent().getIntExtra("indice", -1);
 
-        Produtos produto = GestorHamburguer.getInstance(this).getHamburger(indice);
+        Hamburger produto = GestorHamburguer.getInstance(this).getHamburger(indice);
 
 
-        this.ivImagemDetalhe.setImageResource(produto.getImagem());
+       // this.ivImagemDetalhe.setImageResource(produto.getImagem());
         this.etNomeDetalhe.setText(produto.getNome());
-        this.etPrecoDetalhe.setText(produto.getPreco() + "");
+        this.etPrecoDetalhe.setText(new StringBuilder("€").append((produto.getPreco() + "")));
 
 
         btAdicionar.setOnClickListener(new View.OnClickListener() {
@@ -93,19 +85,18 @@ public class DetalhesHamburguer extends AppCompatActivity {
             }
         });
     }*/
-        /*Intent intentThatStartedThisActivity = getIntent();
+      /*Intent intentThatStartedThisActivity = getIntent();
         if (intentThatStartedThisActivity.hasExtra("movies")) {
 
-            produtos = getIntent().getParcelableExtra("produtos");
+            hamburger = getIntent().getParcelableExtra("hamburger");
 
-            nome = produtos.getNome();
-            preco = produtos.getPreco();
-            imagem = produtos.getImagem();
-            produto_id = produtos.getId();
+            nome = hamburger.getNome();
+            preco = hamburger.getPreco();
+            imagem = hamburger.getImagem();
+            produto_id = hamburger.getId();
         } else {
             Toast.makeText(this, "No API Data", Toast.LENGTH_SHORT).show();
         }*/
-
       /*  MaterialFavoriteButton materialFavoriteButton = findViewById(R.id.favorite_button);
         if (exists(nome)) {
             materialFavoriteButton.setFavorite(true);
@@ -169,7 +160,7 @@ public class DetalhesHamburguer extends AppCompatActivity {
 
      /*   public void saveFavorite () {
             favoriteDBHelper = new FavoriteDBHelper(activity);
-            favorite = new Produtos();
+            favorite = new Hamburger();
 
 
             favorite.setId(produto_id);
@@ -182,6 +173,7 @@ public class DetalhesHamburguer extends AppCompatActivity {
 */
     private void AdicionarPedido() {
         Toast.makeText(this, "O produto foi adicionado!", Toast.LENGTH_SHORT).show();
+
 
     }
 

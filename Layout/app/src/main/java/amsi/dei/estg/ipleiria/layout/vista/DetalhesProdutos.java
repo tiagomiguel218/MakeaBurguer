@@ -1,12 +1,8 @@
 package amsi.dei.estg.ipleiria.layout.vista;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -14,12 +10,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-import com.github.ivbaranov.mfb.MaterialFavoriteButton;
-import com.google.android.material.snackbar.Snackbar;
-
 import amsi.dei.estg.ipleiria.layout.R;
-import amsi.dei.estg.ipleiria.layout.data.FavoriteContract;
 import amsi.dei.estg.ipleiria.layout.modelo.GestorProdutos;
+import amsi.dei.estg.ipleiria.layout.modelo.Hamburger;
 import amsi.dei.estg.ipleiria.layout.modelo.Produtos;
 
 public class DetalhesProdutos extends AppCompatActivity {
@@ -28,11 +21,13 @@ public class DetalhesProdutos extends AppCompatActivity {
     private ImageView ivImagemDetalhe;
     //private FavoriteDBHelper favoriteDBHelper;
     private SQLiteDatabase pdb;
-    private Produtos favorite;
+    private Hamburger favorite;
     private final AppCompatActivity activity = DetalhesProdutos.this;
-    Produtos produtos;
-    String nome;
-    int preco, imagem, produto_id;
+    Hamburger hamburger;
+
+    String nome, imagem;
+    int produto_id;
+    double preco;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -51,12 +46,26 @@ public class DetalhesProdutos extends AppCompatActivity {
 
         int indice = getIntent().getIntExtra("indice", -1);
 
-        Produtos produto = GestorProdutos.getInstance().getProdutos(indice);
+        Produtos bebidas = GestorProdutos.getInstance(this).getBebidas(indice);
+        Produtos complementos = GestorProdutos.getInstance(this).getComplementos(indice);
+        Produtos sobremesas = GestorProdutos.getInstance(this).getSobremesas(indice);
 
 
-        this.ivImagemDetalhe.setImageResource(produto.getImagem());
-        this.etNomeDetalhe.setText(produto.getNome());
-        this.etPrecoDetalhe.setText(produto.getPreco() + "");
+      //  this.ivImagemDetalhe.setImageResource(bebidas.getImagem());
+        this.etNomeDetalhe.setText(bebidas.getNome());
+        this.etPrecoDetalhe.setText(new StringBuilder("€").append((bebidas.getPreco() + "")));
+
+
+
+       // this.ivImagemDetalhe.setImageResource(complementos.getImagem());
+        this.etNomeDetalhe.setText(complementos.getNome());
+        this.etPrecoDetalhe.setText(new StringBuilder("€").append((complementos.getPreco() + "")));
+
+
+      //  this.ivImagemDetalhe.setImageResource(sobremesas.getImagem());
+        this.etNomeDetalhe.setText(sobremesas.getNome());
+        this.etPrecoDetalhe.setText(new StringBuilder("€").append((sobremesas.getPreco() + "")));
+
 
 
         btAdicionar.setOnClickListener(new View.OnClickListener() {
@@ -95,12 +104,12 @@ public class DetalhesProdutos extends AppCompatActivity {
       /*  Intent intentThatStartedThisActivity = getIntent();
         if (intentThatStartedThisActivity.hasExtra("movies")) {
 
-            produtos = getIntent().getParcelableExtra("produtos");
+            hamburger = getIntent().getParcelableExtra("hamburger");
 
-            nome = produtos.getNome();
-            preco = produtos.getPreco();
-            imagem = produtos.getImagem();
-            produto_id = produtos.getId();
+            nome = hamburger.getNome();
+            preco = hamburger.getPreco();
+            imagem = hamburger.getImagem();
+            produto_id = hamburger.getId();
         } else {
             Toast.makeText(this, "No API Data", Toast.LENGTH_SHORT).show();
         }*/
@@ -169,7 +178,7 @@ public class DetalhesProdutos extends AppCompatActivity {
 
         public void saveFavorite(){
             favoriteDBHelper = new FavoriteDBHelper(activity);
-            favorite = new Produtos();
+            favorite = new Hamburger();
 
 
             favorite.setId(produto_id);
@@ -183,6 +192,8 @@ public class DetalhesProdutos extends AppCompatActivity {
     }
         private void AdicionarPedido () {
             Toast.makeText(this, "O produto foi adicionado!", Toast.LENGTH_SHORT).show();
+
+            //adicionar no shopping cart
 
         }
 

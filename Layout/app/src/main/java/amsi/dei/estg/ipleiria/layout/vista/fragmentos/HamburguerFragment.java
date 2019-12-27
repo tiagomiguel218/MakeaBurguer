@@ -4,36 +4,26 @@ package amsi.dei.estg.ipleiria.layout.vista.fragmentos;
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import android.os.Handler;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.GridView;
 
-import com.google.android.material.navigation.NavigationView;
-
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Random;
 
 import amsi.dei.estg.ipleiria.layout.R;
 import amsi.dei.estg.ipleiria.layout.adaptador.GridViewAdaptadorHamburguer;
 import amsi.dei.estg.ipleiria.layout.listenners.HamburgerListenner;
 import amsi.dei.estg.ipleiria.layout.modelo.GestorHamburguer;
-import amsi.dei.estg.ipleiria.layout.modelo.Produtos;
+import amsi.dei.estg.ipleiria.layout.modelo.Hamburger;
 import amsi.dei.estg.ipleiria.layout.utils.HamburgerJsonParse;
 import amsi.dei.estg.ipleiria.layout.vista.DetalhesHamburguer;
 
-/**
- * A simple {@link Fragment} subclass.
- */
+
 public class HamburguerFragment extends Fragment implements HamburgerListenner {
 
     private GridView gridviewHamburguer;
@@ -110,15 +100,15 @@ public class HamburguerFragment extends Fragment implements HamburgerListenner {
 
 
     @Override
-    public void onRefreshListaHamburger(ArrayList<Produtos> listaHamburger) {
+    public void onRefreshListaHamburger(ArrayList<Hamburger> listaHamburger) {
         adaptadorhamburguer=new GridViewAdaptadorHamburguer(getContext(), listaHamburger);
         gridviewHamburguer.setAdapter(adaptadorhamburguer);
         adaptadorhamburguer.notifyDataSetChanged();
     }
 
-    @Override
-    public void onUpdateListaHamburger(Produtos hamburger, int operacao) {
+   /* @Override
+    public void onUpdateListaHamburger(Hamburger hamburger, int operacao) {
 
-    }
+    }*/
 }
 

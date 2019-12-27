@@ -11,23 +11,24 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-import amsi.dei.estg.ipleiria.layout.modelo.Hamburger;
+import amsi.dei.estg.ipleiria.layout.modelo.Produtos;
 
-public class HamburgerJsonParse {
-
-    public static ArrayList<Hamburger> parseJsonHamburger(JSONArray resposta, Context contexto){
-        ArrayList<Hamburger> lista= new ArrayList<Hamburger>();
+public class ProdutosJsonParse {
+    public static ArrayList<Produtos> parseJsonProdutos(JSONArray resposta, Context contexto){
+        ArrayList<Produtos> lista= new ArrayList<Produtos>();
         try {
+
             for(int i =0; i<resposta.length(); i++){
 
-                JSONObject hamburgerapi = (JSONObject)resposta.get(i);
+                JSONObject produtosapi = (JSONObject)resposta.get(i);
 
-                Hamburger livro=new Hamburger(hamburgerapi.getInt("id"),
-                        hamburgerapi.getString("nome"),
-                        hamburgerapi.getDouble("preco"),
-                        hamburgerapi.getString("imagem"));
+                Produtos produtos=new Produtos(produtosapi.getInt("id"),
+                        produtosapi.getString("Nome"),
+                        produtosapi.getInt("Preco"),
+                        produtosapi.getInt("Imagem"),
+                        produtosapi.getInt("Categoria"));
 
-                lista.add(livro);
+                lista.add(produtos);
             }
         }catch (JSONException e) {
             e.printStackTrace();
@@ -38,20 +39,23 @@ public class HamburgerJsonParse {
 
     }
 
-    public static Hamburger parserJsonHamburger(JSONObject resposta, Context contexto){
-        Hamburger hamburger = null;
+    public static Produtos parserJsonProdutos(JSONObject resposta, Context contexto){
+        Produtos produtos = null;
         try {
-            hamburger =new Hamburger(resposta.getInt("id"),
-                    resposta.getString("nome"),
-                    resposta.getDouble("preco"),
-                    resposta.getString("imagem"));
+            produtos =new Produtos(resposta.getInt("id"),
+                    resposta.getString("Nome"),
+                    resposta.getInt("Preco"),
+                    resposta.getInt("Imagem"),
+                    resposta.getInt("Categoria"));
         }catch (JSONException e) {
             e.printStackTrace();
             Toast.makeText(contexto, "ERRO:" + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
-        return hamburger;
+        return produtos;
     }
     //1.5.3 para limpar os dados da tabela
+
+
     public static boolean isConnectionInternet(Context contexto){
         ConnectivityManager cm= (ConnectivityManager) contexto.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo= cm.getActiveNetworkInfo();
